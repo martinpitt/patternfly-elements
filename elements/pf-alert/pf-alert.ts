@@ -1,6 +1,7 @@
 import { SlotController } from '@patternfly/pfe-core/controllers/slot-controller.js';
 
-import { LitElement, html, type ComplexAttributeConverter, type PropertyValues } from 'lit';
+import { LitElement, html } from 'lit';
+import type { ComplexAttributeConverter, PropertyValues, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -27,13 +28,13 @@ const ICONS = {
           set="${set}"
           icon="${icon}">
       </pf-icon>`;
-  }
+  },
 };
 
 export class AlertCloseEvent extends ComposedEvent {
   constructor() {
     super('close', {
-      cancelable: true
+      cancelable: true,
     });
   }
 }
@@ -47,7 +48,7 @@ const BooleanNumberConverter: ComplexAttributeConverter<boolean | number> = {
     } else {
       return Number(value);
     }
-  }
+  },
 };
 
 /**
@@ -140,7 +141,7 @@ const BooleanNumberConverter: ComplexAttributeConverter<boolean | number> = {
  */
 @customElement('pf-alert')
 export class PfAlert extends LitElement {
-  static readonly styles = [styles];
+  static readonly styles: CSSStyleSheet[] = [styles];
 
   /** Header or title of the alert. */
   @property({ reflect: true }) header = '';
@@ -154,10 +155,10 @@ export class PfAlert extends LitElement {
 
   /**
    * The variant of the alert.
-   * @type {('success' | 'danger' | 'warning' | 'info' | 'default')}
+   * {('success' | 'danger' | 'warning' | 'info' | 'default')}
    */
   @property({ reflect: true })
-    variant: 'success' | 'danger' | 'warning' | 'info' | 'default' = 'default';
+  variant: 'success' | 'danger' | 'warning' | 'info' | 'default' = 'default';
 
   /** Whether the alert should be displayed inline. */
   @property({ reflect: true, type: Boolean }) inline = false;
@@ -177,13 +178,13 @@ export class PfAlert extends LitElement {
 
   #slots = new SlotController(this, 'header', null, 'actions');
 
-  override willUpdate() {
+  override willUpdate(): void {
     if (this.truncateTitle) {
       import('@patternfly/elements/pf-tooltip/pf-tooltip.js');
     }
   }
 
-  firstUpdated(_changedProperties: PropertyValues<this>) {
+  firstUpdated(_changedProperties: PropertyValues<this>): void {
     if (_changedProperties.has('timeout')) {
       if (this.timeout) {
         const parsed = typeof this.timeout === 'boolean' ? 8000 : this.timeout;
@@ -201,10 +202,10 @@ export class PfAlert extends LitElement {
     }
   }
 
-  render() {
+  render(): TemplateResult<1> {
     const { truncateTitle, header, dismissable, variant } = this;
     const hasActions = this.#slots.hasSlotted('actions');
-    const hasContent = this.#slots.hasAnonymousSlot();
+    const hasContent = true; /* this.#slots.hasAnonymousSlot(); */
 
     return html`
        <div id="container" role="alert" aria-hidden="false"  class="${classMap({ truncateTitle })}">
