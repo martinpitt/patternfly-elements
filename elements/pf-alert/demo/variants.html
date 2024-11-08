@@ -1,41 +1,47 @@
-<link rel="stylesheet" href="demo.css"><script type="module" src="pf-alert.js"></script>
+<section>
+  <pf-alert header="Default alert title"></pf-alert>
+  <pf-alert variant="info" header="Info alert title"></pf-alert>
+  <pf-alert variant="success" header="Success alert title"></pf-alert>
+  <pf-alert variant="warning" header="Warning alert title"></pf-alert>
+  <pf-alert variant="danger" header="Danger alert title"></pf-alert>
+</section>
 
-<pf-alert header="Default alert title"></pf-alert>
-<pf-alert variant="info" header="Info alert title"></pf-alert>
-<pf-alert variant="success" header="Success alert title"></pf-alert>
-<pf-alert variant="warning" header="Warning alert title"></pf-alert>
-<pf-alert variant="danger" header="Danger alert title"></pf-alert>
+<section>
+  <h2>Alert Variations</h2>
 
-<h2>
-    Alert Variations
-</h2>
+  <pf-alert header="Success alert title" variant="success" dismissable>
+    <p>Success alert description. This should tell the user more information about the alert.</p>
+    <button slot="actions">View details</button>
+    <button slot="actions">Ignore</button>
+  </pf-alert>
 
-<pf-alert header="Success alert title" variant="success" dismissable>
-  <p>Success alert description. This should tell the user more information about the alert.</p>
-  <button slot="actions">View details</button>
-  <button slot="actions">Ignore</button>
-</pf-alert>
+  <pf-alert header="Success alert title" variant="success" dismissable>
+    <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
+    <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
+  </pf-alert>
 
-<pf-alert header="Success alert title" variant="success" dismissable>
-  <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
-  <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
-</pf-alert>
+  <pf-alert header="Success alert title" variant="success" dismissable>
+    <button slot="actions">View details</button>
+    <button slot="actions">Ignore</button>
+  </pf-alert>
 
-<pf-alert header="Success alert title" variant="success" dismissable>
-  <button slot="actions">View details</button>
-  <button slot="actions">Ignore</button>
-</pf-alert>
+  <pf-alert header="Success alert title" variant="success" dismissable>
 
-<pf-alert header="Success alert title" variant="success" dismissable>
+    <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
+    <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
+    <button slot="actions">View details</button>
+    <button slot="actions">Ignore</button>
+    <button slot="actions">Ignore</button>
+    <button slot="actions">Ignore</button>
+    <button slot="actions">Ignore</button>
+    <button slot="actions">Ignore</button>
+  </pf-alert>
 
-  <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
-  <p>Success alert description. This should tell the user more information about the alert. <a href="#">This is a link.</a></p>
-  <button slot="actions">View details</button>
-  <button slot="actions">Ignore</button>
-  <button slot="actions">Ignore</button>
-  <button slot="actions">Ignore</button>
-  <button slot="actions">Ignore</button>
-  <button slot="actions">Ignore</button>
-</pf-alert>
+  <pf-alert header="Success alert title" variant="success" dismissable></pf-alert>
+</section>
 
-<pf-alert header="Success alert title" variant="success" dismissable></pf-alert>
+<script type="module">
+  import '@patternfly/elements/pf-alert/pf-alert.js';
+</script>
+
+<link rel="stylesheet" href="demo.css">
